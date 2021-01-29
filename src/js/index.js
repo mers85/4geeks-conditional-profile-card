@@ -33,14 +33,26 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name} ${variables.lastname}</h1>
-          <h2>${variables.role}</h2>
-          <h3>${variables.city}, ${variables.country}</h3>
+          <h1>${variables.name ? variables.name : "Name"} ${
+    variables.lastname ? variables.lastname : "Lastname"
+  }</h1>
+          <h2>${variables.role ? variables.role : "Role"}</h2>
+          <h3>${variables.city ? variables.city : "City"}, ${
+    variables.country ? variables.country : "Country"
+  }</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="${variables.twitter}"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="${variables.github}"><i class="fa fa-github"></i></a></li>
-            <li><a href="${variables.linkedin}"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="${variables.instagram}"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="${
+              variables.twitter
+            }"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="${
+              variables.github
+            }"><i class="fa fa-github"></i></a></li>
+            <li><a href="${
+              variables.linkedin
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="${
+              variables.instagram
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -58,17 +70,17 @@ window.onload = function() {
     // this is the url for the profile avatar
     avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
     // social media bar position (left or right)
-    socialMediaPosition: "position-right",
+    socialMediaPosition: "left", // social media bar position (left or right)
     // social media usernames
-    twitter: "twitter",
-    github: "github",
-    linkedin: "linkedin",
-    instagram: "instagram",
-    name: "name",
-    lastname: "lastname",
-    role: "role",
-    country: "country",
-    city: "city"
+    twitter: null, // social media usernames
+    github: "alesanchezr",
+    linkedin: null,
+    instagram: null,
+    name: null,
+    lastname: null,
+    role: null,
+    country: null,
+    city: null
   };
   render(window.variables); //render the card for the first time
 
